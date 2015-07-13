@@ -1,0 +1,10 @@
+package com.jarvis.zcontrol.protocol;
+
+message MessageProtocol{
+
+  required string funName= 1;
+  required string computerName=2;
+  required string userName=3;
+  required string ip=4;
+  required string messageBody=5;
+}
