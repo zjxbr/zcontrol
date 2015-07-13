@@ -11,11 +11,11 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
-import com.jarvis.zcontrol.protocol.MessageDecoder;
 import com.jarvis.zcontrol.server.handler.ServerRequestHandler;
 
+
 /**
- * Hello world!
+ * @author zjx
  *
  */
 public class ClientDaemon {
@@ -52,7 +52,7 @@ public class ClientDaemon {
 							ChannelPipeline p = ch.pipeline();
 							p.addLast(new LoggingHandler(LogLevel.INFO));
 							// p.addLast("encoder", new MessageEncoder());// 在这里
-							p.addLast("decoder", new MessageDecoder());// 在这里
+//							p.addLast("decoder", new MessageDecoder());// 在这里
 							p.addLast("MyServerHandler", new ServerRequestHandler());// server端处理消息
 						}
 					}).childOption(ChannelOption.AUTO_READ, true).bind(3128)

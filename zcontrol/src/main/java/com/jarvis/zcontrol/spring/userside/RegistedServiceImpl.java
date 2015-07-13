@@ -1,4 +1,4 @@
-package com.jarvis.zcontrol.spring.service;
+package com.jarvis.zcontrol.spring.userside;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,17 +8,17 @@ import com.jarvis.zcontrol.protocol.MessagePB.MessageProtocol;
 
 /**
  * @author zjx
- * 查询crontab
+ * 注册crontab
  */
-@Component("ViewCrontabService")
-public class ViewCrontabServiceImpl implements BaseService {
+@Component("RegistedService")
+public class RegistedServiceImpl implements BaseService {
 
 	private static final Logger LOG = LoggerFactory
-			.getLogger(ViewCrontabServiceImpl.class);
-
+			.getLogger(RegistedServiceImpl.class);
+	
 	@Override
 	public void deal(MessageProtocol messageProtocol) {
-		LOG.info("查询crontab");
+		LOG.info("新建crontab");
 		// TODO
 
 		try {
@@ -28,7 +28,7 @@ public class ViewCrontabServiceImpl implements BaseService {
 			e.printStackTrace();
 		}
 
-		LOG.info("查询crontab完成");
+		LOG.info("新建crontab完成");
 
 	}
 

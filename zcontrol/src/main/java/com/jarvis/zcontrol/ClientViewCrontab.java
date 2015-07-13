@@ -13,7 +13,6 @@ import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import com.jarvis.zcontrol.bean.RpcInfoBean;
 import com.jarvis.zcontrol.exception.FailedExecuteException;
 import com.jarvis.zcontrol.protocol.MessagePB.MessageProtocol;
-import com.jarvis.zcontrol.protocol.ZjxProtocol1;
 
 /**
  * @author zjx
@@ -45,10 +44,6 @@ public class ClientViewCrontab {
 
 			// Start the client.
 			ChannelFuture f = b.connect(host, port).sync();
-
-			// 发送http请求
-			ZjxProtocol1 zjxProtocol1 = new ZjxProtocol1();
-			zjxProtocol1.setName("lalalala");
 
 			RpcInfoBean rpcInfoBean = RpcInfoBean.returnRPCInfo();
 			System.out.println(rpcInfoBean);

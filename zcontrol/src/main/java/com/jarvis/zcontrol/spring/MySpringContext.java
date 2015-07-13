@@ -20,7 +20,7 @@ public final class MySpringContext {
 
 	}
 
-	public static AbstractApplicationContext getInsance() {
+	public static AbstractApplicationContext getInstance() {
 		if (instance == null) {
 			synchronized (lock) {
 				if (instance == null) {

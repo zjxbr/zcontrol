@@ -1,4 +1,4 @@
-package com.jarvis.zcontrol.spring.service;
+package com.jarvis.zcontrol.spring.userside;
 
 import com.jarvis.zcontrol.protocol.MessagePB.MessageProtocol;
 

@@ -12,7 +12,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 
 import com.jarvis.zcontrol.protocol.MessagePB.MessageProtocol;
 import com.jarvis.zcontrol.spring.MySpringContext;
-import com.jarvis.zcontrol.spring.service.BaseService;
+import com.jarvis.zcontrol.spring.userside.BaseService;
 
 /**
  * @author zjx
@@ -24,7 +24,7 @@ public class ServerRequestHandler extends ChannelInboundHandlerAdapter {
 			.getLogger(ServerRequestHandler.class);
 
 	private static final AbstractApplicationContext SpringContext = MySpringContext
-			.getInsance();
+			.getInstance();
 
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
