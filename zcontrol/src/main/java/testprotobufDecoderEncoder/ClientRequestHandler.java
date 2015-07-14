@@ -1,71 +1,67 @@
 package testprotobufDecoderEncoder;
 
-import io.netty.buffer.Unpooled;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.support.AbstractApplicationContext;
 
 import com.jarvis.zcontrol.bean.RpcInfoBean;
+import com.jarvis.zcontrol.exception.FailedExecuteException;
 import com.jarvis.zcontrol.protocol.MessagePB.MessageProtocol;
-import com.jarvis.zcontrol.spring.MySpringContext;
-import com.jarvis.zcontrol.spring.userside.BaseService;
+import com.jarvis.zcontrol.protocol.SendCommandPB.SendCommandProtocol;
 
 /**
  * @author zjx
  *
  */
-public class ProtobufRequestHandler extends ChannelInboundHandlerAdapter {
+public class ClientRequestHandler extends ChannelInboundHandlerAdapter {
 
+	static int i =0;
 	private static final Logger LOG = LoggerFactory
-			.getLogger(ProtobufRequestHandler.class);
-
-//	private static final AbstractApplicationContext SpringContext = MySpringContext
-//			.getInstance();
-//
-	@Override
-	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-		cause.printStackTrace();
-		ctx.close();
-	}
-
-	/**
-	 * Closes the specified channel after alexl queued write requests are
-	 * flushed.
-	 */
-	static void closeOnFlush(Channel ch) {
-		if (ch.isActive()) {
-			ch.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(
-					ChannelFutureListener.CLOSE);
-		}
-	}
+			.getLogger(ClientRequestHandler.class);
 
 	@Override
-	public void channelRead(final ChannelHandlerContext ctx, final Object msg)
+	public void channelActive(ChannelHandlerContext ctx)
+			throws FailedExecuteException {
+
+		RpcInfoBean rpcInfoBean = RpcInfoBean.returnRPCInfo();
+		System.out.println(rpcInfoBean);
+		MessageProtocol bean = MessageProtocol
+				.newBuilder()
+				.setFunName("RegistedService")
+				.setMessageBody(
+						"am messagebodyi am messagebodyadfasdfasdasdfassssssssssssssssssssssssssssssssssssssssfsadf")
+				.setIp(rpcInfoBean.getIp())
+				.setComputerName(rpcInfoBean.getComputerName())
+				.setUserName(rpcInfoBean.getUserName()).build();
+
+		// 发送第一个protobuf
+		ctx.write(bean);
+
+		// 发送第二个protobuf
+		SendCommandProtocol sendCommandProtocol = SendCommandProtocol
+				.newBuilder().setCommand("cmd1").build();
+
+		ctx.write(sendCommandProtocol);
+
+		ctx.flush();
+	}
+
+	@Override
+	public void channelRead(ChannelHandlerContext ctx, Object msg)
 			throws Exception {
-		System.out.println(msg);
-//		if (!(msg instanceof MessageProtocol)) {
-//			// TODO
-//			System.err.println("对象解析错误，无法解析成 MessageProtocol");
-//			return;
-//		}
-//		MessageProtocol messageProtocol = (MessageProtocol) msg;
-//		LOG.info("接受请求:" + messageProtocol.toString());
-//		String functionName = messageProtocol.getFunName();
-//
-//		BaseService baseService = SpringContext.getBean(functionName,
-//				BaseService.class);
-//		
-//		baseService.deal(messageProtocol);
-		
+		System.out.println(i++);
+		ctx.fireChannelRead(msg);
+	}
+
+	@Override
+	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+//		System.out.println("client channel read complete");
 		RpcInfoBean rpcInfoBean = RpcInfoBean.returnRPCInfo();
 		MessageProtocol bean = MessageProtocol
 				.newBuilder()
-				.setFunName("server side")
+				.setFunName("RegistedService")
 				// .setMessageBody(
 				// "i am messagebodyii am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebody am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebody")
 				.setMessageBody(
@@ -76,17 +72,19 @@ public class ProtobufRequestHandler extends ChannelInboundHandlerAdapter {
 
 		// 发送第一个protobuf
 		ctx.channel().writeAndFlush(bean);
-		
-		System.out.println("server write complete");
-		ctx.fireChannelRead(msg);
-		
-//		ctx.channel().close();
 	}
 
 	@Override
-	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-		System.out.println("channel 读取完毕");
-		ctx.fireChannelReadComplete();
+	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+		System.err.println("client side inactive.");
+		ctx.fireChannelInactive();
+	}
+
+	@Override
+	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+		// Close the connection when an exception is raised.
+		cause.printStackTrace();
+		ctx.close();
 	}
 
 }

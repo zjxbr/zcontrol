@@ -36,6 +36,7 @@ public class TestServer {
 						protected void initChannel(SocketChannel ch)
 								throws Exception {
 							ChannelPipeline p = ch.pipeline();
+							p.addLast(new MyProtobufEncoder());
 							p.addLast("protobufDecoder",
 									new MyProtobufDecoder());
 							p.addLast("MyServerHandler",

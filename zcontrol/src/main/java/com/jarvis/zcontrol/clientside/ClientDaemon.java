@@ -125,7 +125,6 @@ public class ClientDaemon {
 		@Override
 		public void channelReadComplete(ChannelHandlerContext ctx)
 				throws Exception {
-			System.out.println("channel 读取完毕");
 			ctx.fireChannelReadComplete();
 		}
 
