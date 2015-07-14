@@ -1,5 +1,6 @@
 package com.jarvis.zcontrol.spring.serverside;
 
+import java.util.NoSuchElementException;
 import java.util.TreeSet;
 
 import org.springframework.stereotype.Component;
@@ -17,12 +18,27 @@ public class GetJobServiceLocal implements GetJobService {
 
 	@Override
 	public JobInfoBean getJobInfoBean() {
-
+		JobInfoBean rtn;
 		synchronized (lock) {
+			if (jobInfoBeans.size() == 0) {
+				return null;
+			}
 			// poll 和put 同用一个lock
-			return jobInfoBeans.pollFirst();
+			try {
+				rtn = jobInfoBeans.first();
+			} catch (NoSuchElementException e) {
+				// donothing
+				return null;
+			}
+			// 如果待处理时间超过1000则什么都不做
+			if ((rtn.getExpectRunTime().getTime() - System.currentTimeMillis()) > 1000) {
+				return null;
+			} else {
+				// 否则取出第一个
+				rtn = jobInfoBeans.pollFirst();
+			}
 		}
-
+		return rtn;
 	}
 
 	@Override

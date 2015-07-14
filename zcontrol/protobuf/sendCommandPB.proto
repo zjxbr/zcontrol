@@ -1,0 +1,6 @@
+package com.jarvis.zcontrol.protocol;
+
+message SendCommandProtocol{
+
+  required string command= 1;
+}

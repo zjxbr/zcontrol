@@ -1,4 +1,4 @@
-package com.jarvis.zcontrol;
+package com.jarvis.zcontrol.clientside;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -19,7 +19,7 @@ import com.jarvis.zcontrol.protocol.MessagePB.MessageProtocol;
  * @since 2015-07-13 客户端注册crontab 到服务器</br>
  *
  */
-public class ClientRegister {
+public class ClientViewCrontab {
 	public static void main(String[] args) throws InterruptedException,
 			FailedExecuteException {
 		final EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -45,15 +45,11 @@ public class ClientRegister {
 			// Start the client.
 			ChannelFuture f = b.connect(host, port).sync();
 
-			// 发送http请求
-			
 			RpcInfoBean rpcInfoBean = RpcInfoBean.returnRPCInfo();
 			System.out.println(rpcInfoBean);
 			MessageProtocol bean = MessageProtocol
 					.newBuilder()
-					.setFunName("RegistedService")
-//					.setMessageBody(
-//							"i am messagebodyii am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebody am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebodyi am messagebody")
+					.setFunName("ViewCrontabService")
 					.setMessageBody(
 							"am messagebodyi am messagebodyadfasdfasdasdfassssssssssssssssssssssssssssssssssssssssfsadf")
 					.setIp(rpcInfoBean.getIp())
