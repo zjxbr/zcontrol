@@ -9,6 +9,12 @@ import java.util.List;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 
+/**
+ * @author zjx
+ * @function 序列化protobuf<br>
+ *           参见MyProtobufDecoder
+ *
+ */
 public class MyProtobufEncoder extends
 		MessageToMessageEncoder<MessageLiteOrBuilder> {
 
@@ -25,35 +31,26 @@ public class MyProtobufEncoder extends
 	protected void encode(ChannelHandlerContext ctx, MessageLiteOrBuilder msg,
 			List<Object> out) throws Exception {
 
-		String clazzName = msg.getClass().getName();
+		// 需要序列化的第一个字段,protobuf的class name
+		byte[] clazzName = msg.getClass().getName().getBytes();
+		// 需要序列化的第二个字段，
 		byte[] protobufBs = ((MessageLite) msg).toByteArray();
 		byte[] protobufLengthBs = int2byteArray(protobufBs.length);
-		byte[] clazzNameBs = int2byteArray(clazzName.getBytes().length);
+		byte[] clazzNameLengthBs = int2byteArray(clazzName.length);
 
 		// 输出长度 int+clazz类名+int+protobuf内容长度
-		byte[] outputBs = new byte[4 + clazzName.getBytes().length + 4
-				+ protobufBs.length];
+		byte[] outputBs = new byte[4 + clazzName.length + 4 + protobufBs.length];
 		int index = 0;
-		System.arraycopy(clazzNameBs, 0, outputBs, index, 4);
+		System.arraycopy(clazzNameLengthBs, 0, outputBs, index, 4);
 		index += 4;
-		System.arraycopy(clazzName.getBytes(), 0, outputBs, index,
-				clazzName.getBytes().length);
-		index += clazzName.getBytes().length;
+		System.arraycopy(clazzName, 0, outputBs, index, clazzName.length);
+		index += clazzName.length;
 		System.arraycopy(protobufLengthBs, 0, outputBs, index, 4);
 		index += 4;
 		System.arraycopy(protobufBs, 0, outputBs, index, protobufBs.length);
 
 		out.add(wrappedBuffer(outputBs));
 		return;
-//		if (msg instanceof MessageLite) {
-//			out.add(wrappedBuffer(((MessageLite) msg).toByteArray()));
-//			return;
-//		}
-//		if (msg instanceof MessageLite.Builder) {
-//			out.add(wrappedBuffer(((MessageLite.Builder) msg).build()
-//					.toByteArray()));
-//		}
-
 	}
 
 }

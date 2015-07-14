@@ -67,17 +67,19 @@ public class ClientTest {
 			f.channel().write(bean);
 			f.channel().flush();
 
-			f.channel().closeFuture();
-			
-			Thread.sleep(1000);
-			
-			f = b.connect(host, port).sync();
 			// 发送第二个protobuf
 			SendCommandProtocol sendCommandProtocol = SendCommandProtocol
 					.newBuilder().setCommand("cmd1").build();
 
 			f.channel().write(sendCommandProtocol);
 			f.channel().flush();
+
+			f.channel().closeFuture();
+
+			// Thread.sleep(1000);
+			//
+			// f = b.connect(host, port).sync();
+
 		} finally {
 			workerGroup.shutdownGracefully();
 		}
