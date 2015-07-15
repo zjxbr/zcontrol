@@ -58,6 +58,7 @@ public class MyProtobufDecoder extends MessageToMessageDecoder<ByteBuf> {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private boolean doDecoder(ChannelHandlerContext ctx, ByteBuf msg,
 			List<Object> out) throws Exception {
+		msg.markReaderIndex();
 		if (msg.readableBytes() == 0) {
 			return false;
 		}
@@ -79,6 +80,11 @@ public class MyProtobufDecoder extends MessageToMessageDecoder<ByteBuf> {
 
 		// 获取protobuf内容
 		int protobufContentLength = msg.readInt();
+		// TODO 判断是否一个包装不下，如果不够，则返回，这部分代码没有测试到
+		if(msg.readableBytes() < protobufContentLength){
+			msg.resetReaderIndex();
+			return false;
+		}
 		byte[] protobufContentBs = new byte[protobufContentLength];
 		msg.readBytes(protobufContentBs);
 
