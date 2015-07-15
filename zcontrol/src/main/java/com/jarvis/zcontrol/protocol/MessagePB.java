@@ -11,77 +11,91 @@ public final class MessagePB {
   public interface MessageProtocolOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required string funName = 1;
+    // required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;
     /**
-     * <code>required string funName = 1;</code>
+     * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+     */
+    boolean hasSpringBeanProtocol();
+    /**
+     * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+     */
+    com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol getSpringBeanProtocol();
+    /**
+     * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+     */
+    com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocolOrBuilder getSpringBeanProtocolOrBuilder();
+
+    // required string funName = 2;
+    /**
+     * <code>required string funName = 2;</code>
      */
     boolean hasFunName();
     /**
-     * <code>required string funName = 1;</code>
+     * <code>required string funName = 2;</code>
      */
     java.lang.String getFunName();
     /**
-     * <code>required string funName = 1;</code>
+     * <code>required string funName = 2;</code>
      */
     com.google.protobuf.ByteString
         getFunNameBytes();
 
-    // required string computerName = 2;
+    // required string computerName = 3;
     /**
-     * <code>required string computerName = 2;</code>
+     * <code>required string computerName = 3;</code>
      */
     boolean hasComputerName();
     /**
-     * <code>required string computerName = 2;</code>
+     * <code>required string computerName = 3;</code>
      */
     java.lang.String getComputerName();
     /**
-     * <code>required string computerName = 2;</code>
+     * <code>required string computerName = 3;</code>
      */
     com.google.protobuf.ByteString
         getComputerNameBytes();
 
-    // required string userName = 3;
+    // required string userName = 4;
     /**
-     * <code>required string userName = 3;</code>
+     * <code>required string userName = 4;</code>
      */
     boolean hasUserName();
     /**
-     * <code>required string userName = 3;</code>
+     * <code>required string userName = 4;</code>
      */
     java.lang.String getUserName();
     /**
-     * <code>required string userName = 3;</code>
+     * <code>required string userName = 4;</code>
      */
     com.google.protobuf.ByteString
         getUserNameBytes();
 
-    // required string ip = 4;
+    // required string ip = 5;
     /**
-     * <code>required string ip = 4;</code>
+     * <code>required string ip = 5;</code>
      */
     boolean hasIp();
     /**
-     * <code>required string ip = 4;</code>
+     * <code>required string ip = 5;</code>
      */
     java.lang.String getIp();
     /**
-     * <code>required string ip = 4;</code>
+     * <code>required string ip = 5;</code>
      */
     com.google.protobuf.ByteString
         getIpBytes();
 
-    // required string messageBody = 5;
+    // required string messageBody = 6;
     /**
-     * <code>required string messageBody = 5;</code>
+     * <code>required string messageBody = 6;</code>
      */
     boolean hasMessageBody();
     /**
-     * <code>required string messageBody = 5;</code>
+     * <code>required string messageBody = 6;</code>
      */
     java.lang.String getMessageBody();
     /**
-     * <code>required string messageBody = 5;</code>
+     * <code>required string messageBody = 6;</code>
      */
     com.google.protobuf.ByteString
         getMessageBodyBytes();
@@ -138,27 +152,40 @@ public final class MessagePB {
               break;
             }
             case 10: {
+              com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = springBeanProtocol_.toBuilder();
+              }
+              springBeanProtocol_ = input.readMessage(com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(springBeanProtocol_);
+                springBeanProtocol_ = subBuilder.buildPartial();
+              }
               bitField0_ |= 0x00000001;
-              funName_ = input.readBytes();
               break;
             }
             case 18: {
               bitField0_ |= 0x00000002;
-              computerName_ = input.readBytes();
+              funName_ = input.readBytes();
               break;
             }
             case 26: {
               bitField0_ |= 0x00000004;
-              userName_ = input.readBytes();
+              computerName_ = input.readBytes();
               break;
             }
             case 34: {
               bitField0_ |= 0x00000008;
-              ip_ = input.readBytes();
+              userName_ = input.readBytes();
               break;
             }
             case 42: {
               bitField0_ |= 0x00000010;
+              ip_ = input.readBytes();
+              break;
+            }
+            case 50: {
+              bitField0_ |= 0x00000020;
               messageBody_ = input.readBytes();
               break;
             }
@@ -202,17 +229,39 @@ public final class MessagePB {
     }
 
     private int bitField0_;
-    // required string funName = 1;
-    public static final int FUNNAME_FIELD_NUMBER = 1;
-    private java.lang.Object funName_;
+    // required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;
+    public static final int SPRINGBEANPROTOCOL_FIELD_NUMBER = 1;
+    private com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol springBeanProtocol_;
     /**
-     * <code>required string funName = 1;</code>
+     * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
      */
-    public boolean hasFunName() {
+    public boolean hasSpringBeanProtocol() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string funName = 1;</code>
+     * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+     */
+    public com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol getSpringBeanProtocol() {
+      return springBeanProtocol_;
+    }
+    /**
+     * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+     */
+    public com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocolOrBuilder getSpringBeanProtocolOrBuilder() {
+      return springBeanProtocol_;
+    }
+
+    // required string funName = 2;
+    public static final int FUNNAME_FIELD_NUMBER = 2;
+    private java.lang.Object funName_;
+    /**
+     * <code>required string funName = 2;</code>
+     */
+    public boolean hasFunName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string funName = 2;</code>
      */
     public java.lang.String getFunName() {
       java.lang.Object ref = funName_;
@@ -229,7 +278,7 @@ public final class MessagePB {
       }
     }
     /**
-     * <code>required string funName = 1;</code>
+     * <code>required string funName = 2;</code>
      */
     public com.google.protobuf.ByteString
         getFunNameBytes() {
@@ -245,17 +294,17 @@ public final class MessagePB {
       }
     }
 
-    // required string computerName = 2;
-    public static final int COMPUTERNAME_FIELD_NUMBER = 2;
+    // required string computerName = 3;
+    public static final int COMPUTERNAME_FIELD_NUMBER = 3;
     private java.lang.Object computerName_;
     /**
-     * <code>required string computerName = 2;</code>
+     * <code>required string computerName = 3;</code>
      */
     public boolean hasComputerName() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required string computerName = 2;</code>
+     * <code>required string computerName = 3;</code>
      */
     public java.lang.String getComputerName() {
       java.lang.Object ref = computerName_;
@@ -272,7 +321,7 @@ public final class MessagePB {
       }
     }
     /**
-     * <code>required string computerName = 2;</code>
+     * <code>required string computerName = 3;</code>
      */
     public com.google.protobuf.ByteString
         getComputerNameBytes() {
@@ -288,17 +337,17 @@ public final class MessagePB {
       }
     }
 
-    // required string userName = 3;
-    public static final int USERNAME_FIELD_NUMBER = 3;
+    // required string userName = 4;
+    public static final int USERNAME_FIELD_NUMBER = 4;
     private java.lang.Object userName_;
     /**
-     * <code>required string userName = 3;</code>
+     * <code>required string userName = 4;</code>
      */
     public boolean hasUserName() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required string userName = 3;</code>
+     * <code>required string userName = 4;</code>
      */
     public java.lang.String getUserName() {
       java.lang.Object ref = userName_;
@@ -315,7 +364,7 @@ public final class MessagePB {
       }
     }
     /**
-     * <code>required string userName = 3;</code>
+     * <code>required string userName = 4;</code>
      */
     public com.google.protobuf.ByteString
         getUserNameBytes() {
@@ -331,17 +380,17 @@ public final class MessagePB {
       }
     }
 
-    // required string ip = 4;
-    public static final int IP_FIELD_NUMBER = 4;
+    // required string ip = 5;
+    public static final int IP_FIELD_NUMBER = 5;
     private java.lang.Object ip_;
     /**
-     * <code>required string ip = 4;</code>
+     * <code>required string ip = 5;</code>
      */
     public boolean hasIp() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>required string ip = 4;</code>
+     * <code>required string ip = 5;</code>
      */
     public java.lang.String getIp() {
       java.lang.Object ref = ip_;
@@ -358,7 +407,7 @@ public final class MessagePB {
       }
     }
     /**
-     * <code>required string ip = 4;</code>
+     * <code>required string ip = 5;</code>
      */
     public com.google.protobuf.ByteString
         getIpBytes() {
@@ -374,17 +423,17 @@ public final class MessagePB {
       }
     }
 
-    // required string messageBody = 5;
-    public static final int MESSAGEBODY_FIELD_NUMBER = 5;
+    // required string messageBody = 6;
+    public static final int MESSAGEBODY_FIELD_NUMBER = 6;
     private java.lang.Object messageBody_;
     /**
-     * <code>required string messageBody = 5;</code>
+     * <code>required string messageBody = 6;</code>
      */
     public boolean hasMessageBody() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>required string messageBody = 5;</code>
+     * <code>required string messageBody = 6;</code>
      */
     public java.lang.String getMessageBody() {
       java.lang.Object ref = messageBody_;
@@ -401,7 +450,7 @@ public final class MessagePB {
       }
     }
     /**
-     * <code>required string messageBody = 5;</code>
+     * <code>required string messageBody = 6;</code>
      */
     public com.google.protobuf.ByteString
         getMessageBodyBytes() {
@@ -418,6 +467,7 @@ public final class MessagePB {
     }
 
     private void initFields() {
+      springBeanProtocol_ = com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.getDefaultInstance();
       funName_ = "";
       computerName_ = "";
       userName_ = "";
@@ -429,6 +479,10 @@ public final class MessagePB {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
+      if (!hasSpringBeanProtocol()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       if (!hasFunName()) {
         memoizedIsInitialized = 0;
         return false;
@@ -449,6 +503,10 @@ public final class MessagePB {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!getSpringBeanProtocol().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -457,19 +515,22 @@ public final class MessagePB {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getFunNameBytes());
+        output.writeMessage(1, springBeanProtocol_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getComputerNameBytes());
+        output.writeBytes(2, getFunNameBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getUserNameBytes());
+        output.writeBytes(3, getComputerNameBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, getIpBytes());
+        output.writeBytes(4, getUserNameBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(5, getMessageBodyBytes());
+        output.writeBytes(5, getIpBytes());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeBytes(6, getMessageBodyBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -482,23 +543,27 @@ public final class MessagePB {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getFunNameBytes());
+          .computeMessageSize(1, springBeanProtocol_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getComputerNameBytes());
+          .computeBytesSize(2, getFunNameBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getUserNameBytes());
+          .computeBytesSize(3, getComputerNameBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, getIpBytes());
+          .computeBytesSize(4, getUserNameBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, getMessageBodyBytes());
+          .computeBytesSize(5, getIpBytes());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(6, getMessageBodyBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -608,6 +673,7 @@ public final class MessagePB {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getSpringBeanProtocolFieldBuilder();
         }
       }
       private static Builder create() {
@@ -616,16 +682,22 @@ public final class MessagePB {
 
       public Builder clear() {
         super.clear();
-        funName_ = "";
+        if (springBeanProtocolBuilder_ == null) {
+          springBeanProtocol_ = com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.getDefaultInstance();
+        } else {
+          springBeanProtocolBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000001);
-        computerName_ = "";
+        funName_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        userName_ = "";
+        computerName_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        ip_ = "";
+        userName_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        messageBody_ = "";
+        ip_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
+        messageBody_ = "";
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -657,21 +729,29 @@ public final class MessagePB {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.funName_ = funName_;
+        if (springBeanProtocolBuilder_ == null) {
+          result.springBeanProtocol_ = springBeanProtocol_;
+        } else {
+          result.springBeanProtocol_ = springBeanProtocolBuilder_.build();
+        }
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.computerName_ = computerName_;
+        result.funName_ = funName_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.userName_ = userName_;
+        result.computerName_ = computerName_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.ip_ = ip_;
+        result.userName_ = userName_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
+        }
+        result.ip_ = ip_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
         }
         result.messageBody_ = messageBody_;
         result.bitField0_ = to_bitField0_;
@@ -690,28 +770,31 @@ public final class MessagePB {
 
       public Builder mergeFrom(com.jarvis.zcontrol.protocol.MessagePB.MessageProtocol other) {
         if (other == com.jarvis.zcontrol.protocol.MessagePB.MessageProtocol.getDefaultInstance()) return this;
+        if (other.hasSpringBeanProtocol()) {
+          mergeSpringBeanProtocol(other.getSpringBeanProtocol());
+        }
         if (other.hasFunName()) {
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
           funName_ = other.funName_;
           onChanged();
         }
         if (other.hasComputerName()) {
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
           computerName_ = other.computerName_;
           onChanged();
         }
         if (other.hasUserName()) {
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
           userName_ = other.userName_;
           onChanged();
         }
         if (other.hasIp()) {
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000010;
           ip_ = other.ip_;
           onChanged();
         }
         if (other.hasMessageBody()) {
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000020;
           messageBody_ = other.messageBody_;
           onChanged();
         }
@@ -720,6 +803,10 @@ public final class MessagePB {
       }
 
       public final boolean isInitialized() {
+        if (!hasSpringBeanProtocol()) {
+          
+          return false;
+        }
         if (!hasFunName()) {
           
           return false;
@@ -737,6 +824,10 @@ public final class MessagePB {
           return false;
         }
         if (!hasMessageBody()) {
+          
+          return false;
+        }
+        if (!getSpringBeanProtocol().isInitialized()) {
           
           return false;
         }
@@ -762,16 +853,133 @@ public final class MessagePB {
       }
       private int bitField0_;
 
-      // required string funName = 1;
-      private java.lang.Object funName_ = "";
+      // required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;
+      private com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol springBeanProtocol_ = com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol, com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.Builder, com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocolOrBuilder> springBeanProtocolBuilder_;
       /**
-       * <code>required string funName = 1;</code>
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
        */
-      public boolean hasFunName() {
+      public boolean hasSpringBeanProtocol() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string funName = 1;</code>
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      public com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol getSpringBeanProtocol() {
+        if (springBeanProtocolBuilder_ == null) {
+          return springBeanProtocol_;
+        } else {
+          return springBeanProtocolBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      public Builder setSpringBeanProtocol(com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol value) {
+        if (springBeanProtocolBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          springBeanProtocol_ = value;
+          onChanged();
+        } else {
+          springBeanProtocolBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      public Builder setSpringBeanProtocol(
+          com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.Builder builderForValue) {
+        if (springBeanProtocolBuilder_ == null) {
+          springBeanProtocol_ = builderForValue.build();
+          onChanged();
+        } else {
+          springBeanProtocolBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      public Builder mergeSpringBeanProtocol(com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol value) {
+        if (springBeanProtocolBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              springBeanProtocol_ != com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.getDefaultInstance()) {
+            springBeanProtocol_ =
+              com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.newBuilder(springBeanProtocol_).mergeFrom(value).buildPartial();
+          } else {
+            springBeanProtocol_ = value;
+          }
+          onChanged();
+        } else {
+          springBeanProtocolBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      public Builder clearSpringBeanProtocol() {
+        if (springBeanProtocolBuilder_ == null) {
+          springBeanProtocol_ = com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.getDefaultInstance();
+          onChanged();
+        } else {
+          springBeanProtocolBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      public com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.Builder getSpringBeanProtocolBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getSpringBeanProtocolFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      public com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocolOrBuilder getSpringBeanProtocolOrBuilder() {
+        if (springBeanProtocolBuilder_ != null) {
+          return springBeanProtocolBuilder_.getMessageOrBuilder();
+        } else {
+          return springBeanProtocol_;
+        }
+      }
+      /**
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol, com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.Builder, com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocolOrBuilder> 
+          getSpringBeanProtocolFieldBuilder() {
+        if (springBeanProtocolBuilder_ == null) {
+          springBeanProtocolBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol, com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.Builder, com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocolOrBuilder>(
+                  springBeanProtocol_,
+                  getParentForChildren(),
+                  isClean());
+          springBeanProtocol_ = null;
+        }
+        return springBeanProtocolBuilder_;
+      }
+
+      // required string funName = 2;
+      private java.lang.Object funName_ = "";
+      /**
+       * <code>required string funName = 2;</code>
+       */
+      public boolean hasFunName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string funName = 2;</code>
        */
       public java.lang.String getFunName() {
         java.lang.Object ref = funName_;
@@ -785,7 +993,7 @@ public final class MessagePB {
         }
       }
       /**
-       * <code>required string funName = 1;</code>
+       * <code>required string funName = 2;</code>
        */
       public com.google.protobuf.ByteString
           getFunNameBytes() {
@@ -801,51 +1009,51 @@ public final class MessagePB {
         }
       }
       /**
-       * <code>required string funName = 1;</code>
+       * <code>required string funName = 2;</code>
        */
       public Builder setFunName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  bitField0_ |= 0x00000002;
         funName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string funName = 1;</code>
+       * <code>required string funName = 2;</code>
        */
       public Builder clearFunName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         funName_ = getDefaultInstance().getFunName();
         onChanged();
         return this;
       }
       /**
-       * <code>required string funName = 1;</code>
+       * <code>required string funName = 2;</code>
        */
       public Builder setFunNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  bitField0_ |= 0x00000002;
         funName_ = value;
         onChanged();
         return this;
       }
 
-      // required string computerName = 2;
+      // required string computerName = 3;
       private java.lang.Object computerName_ = "";
       /**
-       * <code>required string computerName = 2;</code>
+       * <code>required string computerName = 3;</code>
        */
       public boolean hasComputerName() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required string computerName = 2;</code>
+       * <code>required string computerName = 3;</code>
        */
       public java.lang.String getComputerName() {
         java.lang.Object ref = computerName_;
@@ -859,7 +1067,7 @@ public final class MessagePB {
         }
       }
       /**
-       * <code>required string computerName = 2;</code>
+       * <code>required string computerName = 3;</code>
        */
       public com.google.protobuf.ByteString
           getComputerNameBytes() {
@@ -875,51 +1083,51 @@ public final class MessagePB {
         }
       }
       /**
-       * <code>required string computerName = 2;</code>
+       * <code>required string computerName = 3;</code>
        */
       public Builder setComputerName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         computerName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string computerName = 2;</code>
+       * <code>required string computerName = 3;</code>
        */
       public Builder clearComputerName() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         computerName_ = getDefaultInstance().getComputerName();
         onChanged();
         return this;
       }
       /**
-       * <code>required string computerName = 2;</code>
+       * <code>required string computerName = 3;</code>
        */
       public Builder setComputerNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         computerName_ = value;
         onChanged();
         return this;
       }
 
-      // required string userName = 3;
+      // required string userName = 4;
       private java.lang.Object userName_ = "";
       /**
-       * <code>required string userName = 3;</code>
+       * <code>required string userName = 4;</code>
        */
       public boolean hasUserName() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required string userName = 3;</code>
+       * <code>required string userName = 4;</code>
        */
       public java.lang.String getUserName() {
         java.lang.Object ref = userName_;
@@ -933,7 +1141,7 @@ public final class MessagePB {
         }
       }
       /**
-       * <code>required string userName = 3;</code>
+       * <code>required string userName = 4;</code>
        */
       public com.google.protobuf.ByteString
           getUserNameBytes() {
@@ -949,51 +1157,51 @@ public final class MessagePB {
         }
       }
       /**
-       * <code>required string userName = 3;</code>
+       * <code>required string userName = 4;</code>
        */
       public Builder setUserName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         userName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string userName = 3;</code>
+       * <code>required string userName = 4;</code>
        */
       public Builder clearUserName() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         userName_ = getDefaultInstance().getUserName();
         onChanged();
         return this;
       }
       /**
-       * <code>required string userName = 3;</code>
+       * <code>required string userName = 4;</code>
        */
       public Builder setUserNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         userName_ = value;
         onChanged();
         return this;
       }
 
-      // required string ip = 4;
+      // required string ip = 5;
       private java.lang.Object ip_ = "";
       /**
-       * <code>required string ip = 4;</code>
+       * <code>required string ip = 5;</code>
        */
       public boolean hasIp() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>required string ip = 4;</code>
+       * <code>required string ip = 5;</code>
        */
       public java.lang.String getIp() {
         java.lang.Object ref = ip_;
@@ -1007,7 +1215,7 @@ public final class MessagePB {
         }
       }
       /**
-       * <code>required string ip = 4;</code>
+       * <code>required string ip = 5;</code>
        */
       public com.google.protobuf.ByteString
           getIpBytes() {
@@ -1023,51 +1231,51 @@ public final class MessagePB {
         }
       }
       /**
-       * <code>required string ip = 4;</code>
+       * <code>required string ip = 5;</code>
        */
       public Builder setIp(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         ip_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string ip = 4;</code>
+       * <code>required string ip = 5;</code>
        */
       public Builder clearIp() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         ip_ = getDefaultInstance().getIp();
         onChanged();
         return this;
       }
       /**
-       * <code>required string ip = 4;</code>
+       * <code>required string ip = 5;</code>
        */
       public Builder setIpBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         ip_ = value;
         onChanged();
         return this;
       }
 
-      // required string messageBody = 5;
+      // required string messageBody = 6;
       private java.lang.Object messageBody_ = "";
       /**
-       * <code>required string messageBody = 5;</code>
+       * <code>required string messageBody = 6;</code>
        */
       public boolean hasMessageBody() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>required string messageBody = 5;</code>
+       * <code>required string messageBody = 6;</code>
        */
       public java.lang.String getMessageBody() {
         java.lang.Object ref = messageBody_;
@@ -1081,7 +1289,7 @@ public final class MessagePB {
         }
       }
       /**
-       * <code>required string messageBody = 5;</code>
+       * <code>required string messageBody = 6;</code>
        */
       public com.google.protobuf.ByteString
           getMessageBodyBytes() {
@@ -1097,36 +1305,36 @@ public final class MessagePB {
         }
       }
       /**
-       * <code>required string messageBody = 5;</code>
+       * <code>required string messageBody = 6;</code>
        */
       public Builder setMessageBody(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000010;
+  bitField0_ |= 0x00000020;
         messageBody_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string messageBody = 5;</code>
+       * <code>required string messageBody = 6;</code>
        */
       public Builder clearMessageBody() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         messageBody_ = getDefaultInstance().getMessageBody();
         onChanged();
         return this;
       }
       /**
-       * <code>required string messageBody = 5;</code>
+       * <code>required string messageBody = 6;</code>
        */
       public Builder setMessageBodyBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000010;
+  bitField0_ |= 0x00000020;
         messageBody_ = value;
         onChanged();
         return this;
@@ -1158,9 +1366,12 @@ public final class MessagePB {
   static {
     java.lang.String[] descriptorData = {
       "\n\017messagePB.proto\022\034com.jarvis.zcontrol.p" +
-      "rotocol\"k\n\017MessageProtocol\022\017\n\007funName\030\001 " +
-      "\002(\t\022\024\n\014computerName\030\002 \002(\t\022\020\n\010userName\030\003 " +
-      "\002(\t\022\n\n\002ip\030\004 \002(\t\022\023\n\013messageBody\030\005 \002(\t"
+      "rotocol\032\022springBeanPB.proto\"\271\001\n\017MessageP" +
+      "rotocol\022L\n\022springBeanProtocol\030\001 \002(\01320.co" +
+      "m.jarvis.zcontrol.protocol.SpringBeanPro" +
+      "tocol\022\017\n\007funName\030\002 \002(\t\022\024\n\014computerName\030\003" +
+      " \002(\t\022\020\n\010userName\030\004 \002(\t\022\n\n\002ip\030\005 \002(\t\022\023\n\013me" +
+      "ssageBody\030\006 \002(\t"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1172,13 +1383,14 @@ public final class MessagePB {
           internal_static_com_jarvis_zcontrol_protocol_MessageProtocol_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_jarvis_zcontrol_protocol_MessageProtocol_descriptor,
-              new java.lang.String[] { "FunName", "ComputerName", "UserName", "Ip", "MessageBody", });
+              new java.lang.String[] { "SpringBeanProtocol", "FunName", "ComputerName", "UserName", "Ip", "MessageBody", });
           return null;
         }
       };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.jarvis.zcontrol.protocol.SpringBeanPB.getDescriptor(),
         }, assigner);
   }
 

@@ -1,0 +1,6 @@
+package com.jarvis.zcontrol.protocol;
+
+message SpringBeanProtocol{
+
+  required string beanName= 1;
+}

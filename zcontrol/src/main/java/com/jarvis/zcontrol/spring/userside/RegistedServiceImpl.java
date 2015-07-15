@@ -17,7 +17,7 @@ import com.jarvis.zcontrol.spring.serverside.GetJobService;
  * @author zjx 注册crontab
  */
 @Component("RegistedService")
-public class RegistedServiceImpl implements BaseService {
+public class RegistedServiceImpl implements BaseService<MessageProtocol> {
 
 	private static final Logger LOG = LoggerFactory
 			.getLogger(RegistedServiceImpl.class);

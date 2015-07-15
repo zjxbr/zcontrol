@@ -1,6 +1,11 @@
 package com.jarvis.zcontrol.protocol;
 
+
+
+import "springBeanPB.proto";
+
 message SendCommandProtocol{
 
-  required string command= 1;
+  required SpringBeanProtocol springBeanProtocol = 1;
+  required string command= 2;
 }

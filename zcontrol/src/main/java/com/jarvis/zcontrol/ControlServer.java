@@ -11,14 +11,15 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import testprotobufDecoderEncoder.MyProtobufDecoder;
+
 import com.jarvis.zcontrol.bean.JobInfoBean;
-import com.jarvis.zcontrol.protocol.MessagePB;
+import com.jarvis.zcontrol.protocol.JDProtobufEncoder;
 import com.jarvis.zcontrol.protocol.SendCommandPB.SendCommandProtocol;
 import com.jarvis.zcontrol.server.handler.ServerRequestHandler;
 import com.jarvis.zcontrol.spring.MySpringContext;
@@ -85,12 +86,10 @@ public class ControlServer {
 						protected void initChannel(SocketChannel ch)
 								throws Exception {
 							ChannelPipeline p = ch.pipeline();
-							p.addLast(
-									"protobufDecoder",
-									new ProtobufDecoder(
-											MessagePB.MessageProtocol
-													.getDefaultInstance()));
-							p.addLast(new ProtobufEncoder());
+							p.addLast("protobufEncoder",
+									new JDProtobufEncoder());
+							p.addLast("protobufDecoder",
+									new MyProtobufDecoder());
 							p.addLast("MyServerHandler",
 									new ServerRequestHandler());// server端处理消息
 						}

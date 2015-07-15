@@ -11,17 +11,31 @@ public final class SendCommandPB {
   public interface SendCommandProtocolOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required string command = 1;
+    // required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;
     /**
-     * <code>required string command = 1;</code>
+     * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+     */
+    boolean hasSpringBeanProtocol();
+    /**
+     * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+     */
+    com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol getSpringBeanProtocol();
+    /**
+     * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+     */
+    com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocolOrBuilder getSpringBeanProtocolOrBuilder();
+
+    // required string command = 2;
+    /**
+     * <code>required string command = 2;</code>
      */
     boolean hasCommand();
     /**
-     * <code>required string command = 1;</code>
+     * <code>required string command = 2;</code>
      */
     java.lang.String getCommand();
     /**
-     * <code>required string command = 1;</code>
+     * <code>required string command = 2;</code>
      */
     com.google.protobuf.ByteString
         getCommandBytes();
@@ -78,7 +92,20 @@ public final class SendCommandPB {
               break;
             }
             case 10: {
+              com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = springBeanProtocol_.toBuilder();
+              }
+              springBeanProtocol_ = input.readMessage(com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(springBeanProtocol_);
+                springBeanProtocol_ = subBuilder.buildPartial();
+              }
               bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
               command_ = input.readBytes();
               break;
             }
@@ -122,17 +149,39 @@ public final class SendCommandPB {
     }
 
     private int bitField0_;
-    // required string command = 1;
-    public static final int COMMAND_FIELD_NUMBER = 1;
-    private java.lang.Object command_;
+    // required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;
+    public static final int SPRINGBEANPROTOCOL_FIELD_NUMBER = 1;
+    private com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol springBeanProtocol_;
     /**
-     * <code>required string command = 1;</code>
+     * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
      */
-    public boolean hasCommand() {
+    public boolean hasSpringBeanProtocol() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string command = 1;</code>
+     * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+     */
+    public com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol getSpringBeanProtocol() {
+      return springBeanProtocol_;
+    }
+    /**
+     * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+     */
+    public com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocolOrBuilder getSpringBeanProtocolOrBuilder() {
+      return springBeanProtocol_;
+    }
+
+    // required string command = 2;
+    public static final int COMMAND_FIELD_NUMBER = 2;
+    private java.lang.Object command_;
+    /**
+     * <code>required string command = 2;</code>
+     */
+    public boolean hasCommand() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string command = 2;</code>
      */
     public java.lang.String getCommand() {
       java.lang.Object ref = command_;
@@ -149,7 +198,7 @@ public final class SendCommandPB {
       }
     }
     /**
-     * <code>required string command = 1;</code>
+     * <code>required string command = 2;</code>
      */
     public com.google.protobuf.ByteString
         getCommandBytes() {
@@ -166,6 +215,7 @@ public final class SendCommandPB {
     }
 
     private void initFields() {
+      springBeanProtocol_ = com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.getDefaultInstance();
       command_ = "";
     }
     private byte memoizedIsInitialized = -1;
@@ -173,7 +223,15 @@ public final class SendCommandPB {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
+      if (!hasSpringBeanProtocol()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       if (!hasCommand()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getSpringBeanProtocol().isInitialized()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -185,7 +243,10 @@ public final class SendCommandPB {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getCommandBytes());
+        output.writeMessage(1, springBeanProtocol_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getCommandBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -198,7 +259,11 @@ public final class SendCommandPB {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getCommandBytes());
+          .computeMessageSize(1, springBeanProtocol_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getCommandBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -308,6 +373,7 @@ public final class SendCommandPB {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getSpringBeanProtocolFieldBuilder();
         }
       }
       private static Builder create() {
@@ -316,8 +382,14 @@ public final class SendCommandPB {
 
       public Builder clear() {
         super.clear();
-        command_ = "";
+        if (springBeanProtocolBuilder_ == null) {
+          springBeanProtocol_ = com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.getDefaultInstance();
+        } else {
+          springBeanProtocolBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000001);
+        command_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -349,6 +421,14 @@ public final class SendCommandPB {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
+        if (springBeanProtocolBuilder_ == null) {
+          result.springBeanProtocol_ = springBeanProtocol_;
+        } else {
+          result.springBeanProtocol_ = springBeanProtocolBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.command_ = command_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -366,8 +446,11 @@ public final class SendCommandPB {
 
       public Builder mergeFrom(com.jarvis.zcontrol.protocol.SendCommandPB.SendCommandProtocol other) {
         if (other == com.jarvis.zcontrol.protocol.SendCommandPB.SendCommandProtocol.getDefaultInstance()) return this;
+        if (other.hasSpringBeanProtocol()) {
+          mergeSpringBeanProtocol(other.getSpringBeanProtocol());
+        }
         if (other.hasCommand()) {
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
           command_ = other.command_;
           onChanged();
         }
@@ -376,7 +459,15 @@ public final class SendCommandPB {
       }
 
       public final boolean isInitialized() {
+        if (!hasSpringBeanProtocol()) {
+          
+          return false;
+        }
         if (!hasCommand()) {
+          
+          return false;
+        }
+        if (!getSpringBeanProtocol().isInitialized()) {
           
           return false;
         }
@@ -402,16 +493,133 @@ public final class SendCommandPB {
       }
       private int bitField0_;
 
-      // required string command = 1;
-      private java.lang.Object command_ = "";
+      // required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;
+      private com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol springBeanProtocol_ = com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol, com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.Builder, com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocolOrBuilder> springBeanProtocolBuilder_;
       /**
-       * <code>required string command = 1;</code>
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
        */
-      public boolean hasCommand() {
+      public boolean hasSpringBeanProtocol() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string command = 1;</code>
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      public com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol getSpringBeanProtocol() {
+        if (springBeanProtocolBuilder_ == null) {
+          return springBeanProtocol_;
+        } else {
+          return springBeanProtocolBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      public Builder setSpringBeanProtocol(com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol value) {
+        if (springBeanProtocolBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          springBeanProtocol_ = value;
+          onChanged();
+        } else {
+          springBeanProtocolBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      public Builder setSpringBeanProtocol(
+          com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.Builder builderForValue) {
+        if (springBeanProtocolBuilder_ == null) {
+          springBeanProtocol_ = builderForValue.build();
+          onChanged();
+        } else {
+          springBeanProtocolBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      public Builder mergeSpringBeanProtocol(com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol value) {
+        if (springBeanProtocolBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              springBeanProtocol_ != com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.getDefaultInstance()) {
+            springBeanProtocol_ =
+              com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.newBuilder(springBeanProtocol_).mergeFrom(value).buildPartial();
+          } else {
+            springBeanProtocol_ = value;
+          }
+          onChanged();
+        } else {
+          springBeanProtocolBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      public Builder clearSpringBeanProtocol() {
+        if (springBeanProtocolBuilder_ == null) {
+          springBeanProtocol_ = com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.getDefaultInstance();
+          onChanged();
+        } else {
+          springBeanProtocolBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      public com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.Builder getSpringBeanProtocolBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getSpringBeanProtocolFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      public com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocolOrBuilder getSpringBeanProtocolOrBuilder() {
+        if (springBeanProtocolBuilder_ != null) {
+          return springBeanProtocolBuilder_.getMessageOrBuilder();
+        } else {
+          return springBeanProtocol_;
+        }
+      }
+      /**
+       * <code>required .com.jarvis.zcontrol.protocol.SpringBeanProtocol springBeanProtocol = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol, com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.Builder, com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocolOrBuilder> 
+          getSpringBeanProtocolFieldBuilder() {
+        if (springBeanProtocolBuilder_ == null) {
+          springBeanProtocolBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol, com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocol.Builder, com.jarvis.zcontrol.protocol.SpringBeanPB.SpringBeanProtocolOrBuilder>(
+                  springBeanProtocol_,
+                  getParentForChildren(),
+                  isClean());
+          springBeanProtocol_ = null;
+        }
+        return springBeanProtocolBuilder_;
+      }
+
+      // required string command = 2;
+      private java.lang.Object command_ = "";
+      /**
+       * <code>required string command = 2;</code>
+       */
+      public boolean hasCommand() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string command = 2;</code>
        */
       public java.lang.String getCommand() {
         java.lang.Object ref = command_;
@@ -425,7 +633,7 @@ public final class SendCommandPB {
         }
       }
       /**
-       * <code>required string command = 1;</code>
+       * <code>required string command = 2;</code>
        */
       public com.google.protobuf.ByteString
           getCommandBytes() {
@@ -441,36 +649,36 @@ public final class SendCommandPB {
         }
       }
       /**
-       * <code>required string command = 1;</code>
+       * <code>required string command = 2;</code>
        */
       public Builder setCommand(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  bitField0_ |= 0x00000002;
         command_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string command = 1;</code>
+       * <code>required string command = 2;</code>
        */
       public Builder clearCommand() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         command_ = getDefaultInstance().getCommand();
         onChanged();
         return this;
       }
       /**
-       * <code>required string command = 1;</code>
+       * <code>required string command = 2;</code>
        */
       public Builder setCommandBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  bitField0_ |= 0x00000002;
         command_ = value;
         onChanged();
         return this;
@@ -502,8 +710,10 @@ public final class SendCommandPB {
   static {
     java.lang.String[] descriptorData = {
       "\n\023sendCommandPB.proto\022\034com.jarvis.zcontr" +
-      "ol.protocol\"&\n\023SendCommandProtocol\022\017\n\007co" +
-      "mmand\030\001 \002(\t"
+      "ol.protocol\032\022springBeanPB.proto\"t\n\023SendC" +
+      "ommandProtocol\022L\n\022springBeanProtocol\030\001 \002" +
+      "(\01320.com.jarvis.zcontrol.protocol.Spring" +
+      "BeanProtocol\022\017\n\007command\030\002 \002(\t"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -515,13 +725,14 @@ public final class SendCommandPB {
           internal_static_com_jarvis_zcontrol_protocol_SendCommandProtocol_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_jarvis_zcontrol_protocol_SendCommandProtocol_descriptor,
-              new java.lang.String[] { "Command", });
+              new java.lang.String[] { "SpringBeanProtocol", "Command", });
           return null;
         }
       };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.jarvis.zcontrol.protocol.SpringBeanPB.getDescriptor(),
         }, assigner);
   }
 
